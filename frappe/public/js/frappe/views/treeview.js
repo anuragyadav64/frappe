@@ -89,10 +89,10 @@ frappe.views.TreeView = class TreeView {
 			frappe.ui.make_app_page({ parent: this.parent, single_column: true });
 			this.page = this.parent.page;
 			frappe.container.change_to(this.page_name);
-			frappe.breadcrumbs.add(
-				me.opts.breadcrumb || locals.DocType[me.doctype].module,
-				me.doctype
-			);
+			frappe.breadcrumbs.add({
+	                module: this.module,
+	                doctype: this.doctype
+            });
 
 			this.set_title();
 
